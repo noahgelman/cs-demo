@@ -1,2 +1,7 @@
+$body-bg: #F9F9F9;
+$gray-border-1: #E5E5E5;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import 'reset.scss';
 @import 'layout.scss';
+@import 'file-table.scss';

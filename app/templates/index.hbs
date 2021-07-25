@@ -1,13 +1,7 @@
-<header>
-  <h1>CS Demo</h1>
-</header>
+<Layout::Header>
+  CS Demo
+</Layout::Header>
 
-<main role="main">
-  <p>Content</p>
-  {{#each @model as |file|}}
-    <div>{{file.name}}</div>
-    <div>{{file.device}}</div>
-    <div>{{file.path}}</div>
-    <div>{{file.status}}</div>
-  {{/each}}
+<main>
+  <FileTable @model={{model}} />
 </main>

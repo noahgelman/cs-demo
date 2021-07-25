@@ -1,0 +1,21 @@
+<form class="file-table">
+  <div class="file-table-header">
+    <input type="checkbox" name="select-all" id="select-all">
+    <label for="select-all">
+      Selected 2
+    </label>
+  </div>
+  <ul class="file-table-body">
+    {{#each @model as |file index|}}
+      <li>
+        <input type="checkbox" name="file-{{index}}" id="file-{{index}}">
+        <label for="file-{{index}}">
+          <span>{{file.name}}</span>
+          <span>{{file.device}}</span>
+          <span>{{file.path}}</span>
+          <span>{{file.status}}</span>
+        </label>
+      </li>
+    {{/each}}
+  </ul>
+</form>
