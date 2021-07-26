@@ -1,7 +1,16 @@
 $body-bg: #F9F9F9;
+$body-color: #4A4A4A;
 $gray-border-1: #E5E5E5;
+$file-table-menu-font-size: 1.5em;
+$file-table-header-font-size: 1.4em;
+$file-table-row-font-size: 1.2em;
+$file-table-status-dot-available: #7FD132;
+$ui-bg-hover: #F5F5F5;
+$ui-bg-active: darken($ui-bg-hover, 10%);
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import 'reset.scss';
 @import 'layout.scss';
+@import 'icon.scss';
+@import 'ui.scss';
 @import 'file-table.scss';

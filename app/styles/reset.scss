@@ -4,9 +4,15 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
   background: $body-bg;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $body-color;
 }
 
 li {

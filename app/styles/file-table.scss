@@ -2,8 +2,96 @@
   background: #FFF;
   border: 1px solid $gray-border-1;
 
-  li {
-    padding: 5px;
+  .file-table-menu {
+    font-family: 'Open Sans', sans-serif;
+    padding: 5px 0;
+    font-size: 1.6em;
     border-bottom: 1px solid $gray-border-1;
+
+    * {
+      padding: 10px 9px;
+    }
+  }
+
+  .file-table-content {
+
+    .file-table-header {
+      font-size: 1.4em;
+      padding: 13px 0;
+    }
+
+    .file-table-row {
+      font-size: 1.2em;
+      padding: 9.5px 0;
+      border-top: 1px solid $gray-border-1;
+
+      &:hover {
+        background: $ui-bg-hover;
+      }
+    }
+    
+    .file-table-header,
+    .file-table-row {
+      display: flex;
+
+      span {
+        flex-grow: 1;
+
+        &.file-table-checkbox {
+          width: 6%;
+        }
+
+        &.file-table-name {
+          width: 17%;
+          min-width: 100px;
+        }
+
+        &.file-table-device {
+          width: 16%;
+          min-width: 100px;
+        }
+
+        &.file-table-path {
+          width: 50%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-right: 25px;
+        }
+
+        &.file-table-status {
+          width: 11%;
+          text-transform: capitalize;
+          position: relative;
+          min-width: 100px;
+
+          .file-table-status-dot {
+            padding: 0;
+            display: block;
+            height: $file-table-row-font-size;
+            width: $file-table-row-font-size;
+            border-radius: 50%;
+            margin-right: 5px;
+            position: absolute;
+            right: 100%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            &.available {
+              background: $file-table-status-dot-available;
+            }
+          }
+        }
+      }
+    }
+
+    span {
+      padding: 0 9px;
+    }
+  }
+
+  label {
+    cursor: pointer;
   }
 }

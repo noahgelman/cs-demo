@@ -1,21 +1,40 @@
 <form class="file-table">
-  <div class="file-table-header">
-    <input type="checkbox" name="select-all" id="select-all">
-    <label for="select-all">
-      Selected 2
+  <div class="file-table-menu">
+    <label>
+      <input type="checkbox">
+      {{#if selectedCount}}
+        Selected {{selectedCount}}
+      {{else}}
+        None Selected
+      {{/if}}
     </label>
+    <button class="text-button">
+      <span class="icon-download"></span> Download
+    </button>
   </div>
-  <ul class="file-table-body">
-    {{#each @model as |file index|}}
-      <li>
-        <input type="checkbox" name="file-{{index}}" id="file-{{index}}">
-        <label for="file-{{index}}">
-          <span>{{file.name}}</span>
-          <span>{{file.device}}</span>
-          <span>{{file.path}}</span>
-          <span>{{file.status}}</span>
+  <div class="file-table-content">
+    <div class="file-table-header">
+      <span class="file-table-checkbox"></span>
+      <span class="file-table-name">Name</span>
+      <span class="file-table-device">Device</span>
+      <span class="file-table-path">Path</span>
+      <span class="file-table-status">Status</span>
+    </div>
+    <div class="file-table-body">
+      {{#each @model as |file index|}}
+        <label class="file-table-row">
+          <span class="file-table-checkbox">
+            <input type="checkbox" name="file-{{index}}">
+          </span>
+          <span class="file-table-name" id="name-{{index}}">{{file.name}}</span>
+          <span class="file-table-device" id="device-{{index}}">{{file.device}}</span>
+          <span class="file-table-path" id="path-{{index}}">{{file.path}}</span>
+          <span class="file-table-status" id="status-{{index}}">
+            <span class="file-table-status-dot {{file.status}}"></span>
+            {{file.status}}
+          </span>
         </label>
-      </li>
-    {{/each}}
-  </ul>
+      {{/each}}
+    </div>
+  </div>
 </form>
