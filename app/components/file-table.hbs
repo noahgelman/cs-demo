@@ -1,19 +1,24 @@
 <form class="file-table">
   <div class="file-table-menu">
     <label>
-      <input type="checkbox">
+      <Input
+        @type="checkbox"
+        @checked={{this.allSelected}}
+        {{did-insert (action this.setIndeterminateCheckbox)}}
+        {{on "input" this.updateSelectAll}}
+      />
       {{#if selectedCount}}
         Selected {{selectedCount}}
       {{else}}
         None Selected
       {{/if}}
     </label>
-    <button class="text-button">
+    <button type="button" class="text-button" disabled={{lt selectedCount 1}} {{on "click" this.alertFilePaths}}>
       <span class="icon-download"></span> Download
     </button>
   </div>
   <div class="file-table-content">
-    <div class="file-table-header">
+    <div class="file-table-header hide-only-mobile">
       <span class="file-table-checkbox"></span>
       <span class="file-table-name">Name</span>
       <span class="file-table-device">Device</span>
@@ -21,15 +26,31 @@
       <span class="file-table-status">Status</span>
     </div>
     <div class="file-table-body">
-      {{#each @model as |file index|}}
+      {{#each @files as |file index|}}
         <label class="file-table-row">
           <span class="file-table-checkbox">
-            <input type="checkbox" name="file-{{index}}">
+            <Input
+              @type="checkbox"
+              @name="file-{{index}}"
+              @checked={{get checkboxes (concat "file" index ".checked")}}
+              @disabled={{not-eq file.status "available"}}
+              {{on "input" (fn this.updateIndeterminateCheckbox index)}}
+            />
           </span>
-          <span class="file-table-name" id="name-{{index}}">{{file.name}}</span>
-          <span class="file-table-device" id="device-{{index}}">{{file.device}}</span>
-          <span class="file-table-path" id="path-{{index}}">{{file.path}}</span>
+          <span class="file-table-name" id="name-{{index}}">
+            <span class="show-only-mobile">Name</span>
+            {{file.name}}
+          </span>
+          <span class="file-table-device" id="device-{{index}}">
+            <span class="show-only-mobile">Device</span>
+            {{file.device}}
+          </span>
+          <span class="file-table-path" id="path-{{index}}">
+            <span class="show-only-mobile">Path:</span>
+            {{file.path}}
+          </span>
           <span class="file-table-status" id="status-{{index}}">
+            <span class="show-only-mobile">Status:</span>
             <span class="file-table-status-dot {{file.status}}"></span>
             {{file.status}}
           </span>

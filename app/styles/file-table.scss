@@ -8,90 +8,144 @@
     font-size: 1.6em;
     border-bottom: 1px solid $gray-border-1;
 
-    * {
+    & > * {
       padding: 10px 9px;
+    }
+
+    label {
+      width: 165px;
+      display: inline-block;
+
+      input {
+        margin-right: 20px;
+      }
     }
   }
 
-  .file-table-content {
+  .file-table-header {
+    font-size: 1.4em;
+    padding: 13px 0;
+  }
 
-    .file-table-header {
-      font-size: 1.4em;
-      padding: 13px 0;
+  .file-table-row {
+    font-size: 1.2em;
+    padding: 9.5px 0;
+    border-top: 1px solid $gray-border-1;
+    position: relative;
+    line-height: 1.7em;
+
+    &:hover {
+      background: $ui-bg-hover;
     }
+  }
+  
+  .file-table-header,
+  .file-table-row {
+    display: flex;
 
-    .file-table-row {
-      font-size: 1.2em;
-      padding: 9.5px 0;
-      border-top: 1px solid $gray-border-1;
+    span {
+      flex-grow: 1;
 
-      &:hover {
-        background: $ui-bg-hover;
+      &.file-table-checkbox {
+        width: 6%;
       }
-    }
-    
-    .file-table-header,
-    .file-table-row {
-      display: flex;
 
-      span {
-        flex-grow: 1;
+      &.file-table-name {
+        width: 17%;
+        min-width: 100px;
+      }
 
-        &.file-table-checkbox {
-          width: 6%;
-        }
+      &.file-table-device {
+        width: 16%;
+        min-width: 100px;
+      }
 
-        &.file-table-name {
-          width: 17%;
-          min-width: 100px;
-        }
+      &.file-table-path {
+        width: 50%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 25px;
+      }
 
-        &.file-table-device {
-          width: 16%;
-          min-width: 100px;
-        }
+      &.file-table-status {
+        width: 11%;
+        text-transform: capitalize;
+        position: relative;
+        min-width: 100px;
 
-        &.file-table-path {
-          width: 50%;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          padding-right: 25px;
-        }
+        .file-table-status-dot {
+          padding: 0;
+          display: block;
+          height: $file-table-row-font-size;
+          width: $file-table-row-font-size;
+          border-radius: 50%;
+          margin-right: 5px;
+          position: absolute;
+          right: 100%;
+          top: 0;
+          bottom: 0;
+          margin: auto;
 
-        &.file-table-status {
-          width: 11%;
-          text-transform: capitalize;
-          position: relative;
-          min-width: 100px;
-
-          .file-table-status-dot {
-            padding: 0;
-            display: block;
-            height: $file-table-row-font-size;
-            width: $file-table-row-font-size;
-            border-radius: 50%;
-            margin-right: 5px;
-            position: absolute;
-            right: 100%;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-
-            &.available {
-              background: $file-table-status-dot-available;
-            }
+          &.available {
+            background: $file-table-status-dot-available;
           }
         }
       }
     }
+  }
 
-    span {
-      padding: 0 9px;
+  @media only screen and (max-width: 600px){
+    .file-table-row {
+      flex-direction: column;
+
+      & > span {
+        display: block;
+        padding-left: 30px;
+
+        &.file-table-checkbox,
+        &.file-table-name,
+        &.file-table-device,
+        &.file-table-path,
+        &.file-table-status {
+          width: 100%;
+        }
+
+        &.file-table-checkbox {
+          width: auto;
+          position: absolute;
+          top: 12px;
+          left: 12px;
+          padding: 0;
+        }
+
+        &.file-table-status {
+
+          .file-table-status-dot {
+            position: static;
+            display: inline-block;
+            vertical-align: middle;
+
+            &.scheduled {
+              display: none;
+            }
+          }
+        }
+
+        span {
+          display: inline-block;
+          width: 70px;
+        }
+      }
     }
   }
 
-  label {
+  span {
+    padding: 0 9px;
+  }
+
+  label,
+  input {
     cursor: pointer;
   }
 }
