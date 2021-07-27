@@ -22,6 +22,12 @@
     }
   }
 
+  @media only screen and (max-width: 600px) {
+    .file-table-menu {
+      border-bottom: none;
+    }
+  }
+
   .file-table-header {
     font-size: 1.4em;
     padding: 13px 0;
@@ -36,6 +42,10 @@
 
     &:hover {
       background: $ui-bg-hover;
+    }
+
+    &.file-checked-true {
+      background: $ui-bg-active;
     }
   }
   
@@ -95,7 +105,7 @@
     }
   }
 
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 600px) {
     .file-table-row {
       flex-direction: column;
 

@@ -27,7 +27,7 @@
     </div>
     <div class="file-table-body">
       {{#each @files as |file index|}}
-        <label class="file-table-row">
+        <label class="file-table-row file-checked-{{get checkboxes (concat "file" index ".checked")}}">
           <span class="file-table-checkbox">
             <Input
               @type="checkbox"
